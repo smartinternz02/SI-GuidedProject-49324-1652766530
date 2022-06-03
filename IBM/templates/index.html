@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3D PRINTER MATERIAL PREDICTOR</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        background: rgb(219, 240, 255);
+      }
+
+      input[type="text"],
+      select {
+        width: 30%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: 20px;
+        margin-top: 6px;
+        margin-bottom: 26px;
+        resize: vertical;
+        font-size: 15px;
+      }
+
+      .login {
+        position: absolute;
+        top: 40%;
+        margin: -150px 0 0 0;
+        width: 400px;
+        height: 400px;
+      }
+
+      label {
+        text-align: left;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      button {
+        background-color: #2500ac;
+        color: white;
+        margin-top: 20px;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      p {
+        text-align: center;
+        margin-bottom: 60px;
+        color: rgb(57, 156, 255);
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .bottom-container {
+        background-color: #6552e0;
+        padding-top: 20px;
+        padding-bottom: 1px;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .copyright {
+        color: #edeef7;
+        font-size: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>Group 19: 3-D Printer Material Predictor</p>
+
+    <div>
+      <form action="{{ url_for('predict')}}" method="post">
+        &nbsp<label>Roughness:</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input
+          type="text"
+          name="roughness"
+          placeholder="Enter the value of roughness"
+          required="required"
+        /><br />
+
+        <label>Tension Strength:</label>
+        <input
+          type="text"
+          name="tension_strenght"
+          placeholder="Enter the value of tension strength"
+          required="required"
+        /><br />
+
+        &nbsp<label>Elongation:</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input
+          type="text"
+          name="elongation"
+          placeholder="Enter the value of elongation"
+          required="required"
+        /><br />
+
+        <button type="submit">Predict the material</button>
+      </form>
+      <br />
+      <br />
+      <p class="pred">{{ prediction_text }}</p>
+    </div>
+    <div class="bottom-container">
+      <p class="copyright">
+        © 2022 KPS Shivratna (19BLC1012) and Preetal Nilang Shah (19BLC1013).
+      </p>
+    </div>
+  </body>
+</html>
